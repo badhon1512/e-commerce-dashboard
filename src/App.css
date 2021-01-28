@@ -6,6 +6,10 @@
   height: 40vmin;
   pointer-events: none;
 }
+.nav_bar_wrap a{
+
+  padding-left: 40px;
+}
 
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
