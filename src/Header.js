@@ -9,11 +9,22 @@ function Header(){
       <Navbar bg="dark" variant="dark">
     <Navbar.Brand href="#home">E-shop</Navbar.Brand>
     <Nav className="mr-auto nav_bar_wrap">
-      <Link to='/add' >Add Product</Link>
-      <Link to='/update' >Update Product</Link>
-      <Link  to='/register' >Sign Up</Link>
+{
+  localStorage.getItem('user')?
+  <>
+    <Link to='/add' >Add Product</Link>
+    <Link to='/update' >Update Product</Link>
+    </>:
+    <>
+    <Link  to='/register' >Sign Up</Link>
 
-      <Link  to='/login' >Login</Link>
+     <Link  to='/login' >Login</Link>
+    </>
+  
+ 
+}
+       
+      
      
       
     </Nav>

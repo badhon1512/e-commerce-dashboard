@@ -1,9 +1,12 @@
 import {useState} from 'react'
 import {useHistory} from 'react-router-dom'
+import Header from './Header';
+
 
 
 function Register()
 {
+
 
   const [name,setName]=useState("");
   const [email,setEmail]=useState("");
@@ -34,6 +37,10 @@ function Register()
 
 
   return(
+    <>
+
+    <Header/>
+
 
    <div className="col-sm-6 offset-sm-3">
       
@@ -46,6 +53,7 @@ function Register()
 
 
     </div>
+    </>
   )
 }
 
