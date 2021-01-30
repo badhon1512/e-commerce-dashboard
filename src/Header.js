@@ -1,6 +1,21 @@
-import {Navbar,Brand,Nav,FormControl,Button,Form} from 'react-bootstrap';
-import {Link} from 'react-router-dom'
+import {Navbar,Brand,Nav,FormControl,Button,Form,NavDropdown} from 'react-bootstrap';
+import {Link,useHistory} from 'react-router-dom'
+
 function Header(){
+
+
+ 
+  const user=JSON.parse(localStorage.getItem('user'));
+  console.warn();
+ 
+  let history=useHistory();
+
+
+  function logOut(){
+    localStorage.clear();
+    history.push('./login')
+
+  }
 
 
   return(
@@ -28,10 +43,22 @@ function Header(){
      
       
     </Nav>
-    <Form inline>
-      <FormControl type="text" placeholder="Search" className="mr-sm-2" />
-      <Button variant="outline-info">Search</Button>
-    </Form>
+   <Nav>
+     {
+       localStorage.getItem('user')?
+       <>
+     <NavDropdown title={ user[0].name}>
+       <NavDropdown.Item>Profile</NavDropdown.Item>
+       <NavDropdown.Item onClick={logOut}>Logout</NavDropdown.Item>
+
+
+     </NavDropdown>
+     </>:
+     <>
+     </>
+}
+
+   </Nav>
   </Navbar>
       
 
