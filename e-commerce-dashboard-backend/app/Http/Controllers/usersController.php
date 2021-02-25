@@ -15,6 +15,7 @@ class usersController extends Controller
         $email=$req->input('email');
         $password=$req->input('password');
         $data=DB::select("select * from users where email='$email' and password='$password'");
+        
         return $data;
 
     }

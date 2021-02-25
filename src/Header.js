@@ -6,7 +6,7 @@ function Header(){
 
  
   const user=JSON.parse(localStorage.getItem('user'));
-  console.warn();
+  //console.warn();
  
   let history=useHistory();
 
@@ -47,8 +47,8 @@ function Header(){
      {
        localStorage.getItem('user')?
        <>
-     <NavDropdown title={ user[0].name}>
-       <NavDropdown.Item>Profile</NavDropdown.Item>
+     <NavDropdown title={ user.name}>
+       <NavDropdown.Item ><Link to={"./profile"}>Profile</Link></NavDropdown.Item>
        <NavDropdown.Item onClick={logOut}>Logout</NavDropdown.Item>
 
 

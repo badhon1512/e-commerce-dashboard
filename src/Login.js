@@ -21,15 +21,18 @@ function Login()
 
       })
       result=await result.json();
-    //  localStorage.setItem("user",JSON.stringify(result));
-    if(JSON.stringify(result))
-    {
-      console.warn("none");
-      console.warn(JSON.stringify(result));
-    }
-    else{
-      console.log('uuu');
-    }
+     // console.warn(result[0]);
+     if(result[0])
+     {
+      localStorage.setItem("user",JSON.stringify(result[0]));
+      history.push('./add');
+     }
+     else
+     {
+      alert('please insert valid user');
+     }
+     // 
+   
       
 
      // history.push('./add');

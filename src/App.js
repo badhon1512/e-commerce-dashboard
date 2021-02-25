@@ -7,6 +7,8 @@ import UpdateProduct from './UpdateProduct';
 import Register from './Register';
 import Protected from './Protected';
 import Login from './Login';
+import Profile from './Profile'
+
 
 
 function App() {
@@ -30,6 +32,11 @@ function App() {
 
 <Login/>
 
+  </Route>
+
+
+  <Route path={'/profile'}>
+    <Profile/>
   </Route>
 
 
