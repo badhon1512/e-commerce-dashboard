@@ -7,10 +7,14 @@ function Login()
   let history=useHistory();
   const [email,setEmail]=useState('');
   const [password,setPassword]=useState('');
+  const [checkBlank,setCheckBlank]=useState({email:"",password:""})
 
   async function LoginCheck()
   {
+    
     let data={email,password};
+    let check={email:"",password:""}
+    if(data.email&&data.password){
       let result= await fetch("http://localhost:8000/api/login",{
         method:"POST",
         headers:{
@@ -31,6 +35,20 @@ function Login()
      {
       alert('please insert valid user');
      }
+    }
+    else
+    {
+      if(data.email==="")
+      {
+          check.email="please enter your email"
+      }
+      if(data.email==="")
+      {
+        check.password="please enter your password";
+      }
+    }
+
+    setCheckBlank(check);
      // 
    
       
@@ -45,8 +63,11 @@ function Login()
 <div className='col-sm-4 offset-sm-4'>
     <h1>Login</h1>
 
-    <input onChange={(e)=>setEmail(e.target.value)} className='form-control' placeholder="email"  type='text'/><br/> <br/>
-    <input onChange={(e)=>setPassword(e.target.value)} className='form-control' placeholder="password" type='text'/><br/> <br/>
+    <input onChange={(e)=>setEmail(e.target.value)} className='form-control' placeholder="email"  type='text'/>
+    {checkBlank.email}<br/> <br/>
+    <input onChange={(e)=>setPassword(e.target.value)} className='form-control' placeholder="password" type='text'/>
+    {checkBlank.password}
+    <br/> <br/>
     <button onClick={LoginCheck} className='btn btn-primary'>Login</button>
     </div>
 
