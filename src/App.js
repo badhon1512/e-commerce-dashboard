@@ -26,7 +26,7 @@ function App() {
   <Protected Cmp={Register} />
   </Route>
 
-<Route path='/update' >
+<Route path={'/update/:id'} >
   <Protected Cmp={UpdateProduct} />
   </Route>
 

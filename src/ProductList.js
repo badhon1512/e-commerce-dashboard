@@ -2,6 +2,7 @@
 import Header from './Header';
 import {useEffect,useState} from 'react'
 import {Table} from 'react-bootstrap'
+import {Link} from 'react-router-dom'
 
 const ProductList=()=>{
 
@@ -49,6 +50,8 @@ const ProductList=()=>{
       <td><img src="https://static.toiimg.com/photo/70072353.cms" style={{width:"100px"}}/></td>
       <td>{product.description}</td>
       <td>{product.price}</td>
+      <td><Link><button className="btn btn-danger ">delete</button></Link></td>
+      <td><Link to={'/update/'+product.id}><button className="btn btn-success ">Update</button></Link></td>
       
     </tr>
        )
