@@ -9,6 +9,8 @@ import Protected from './Protected';
 import Login from './Login';
 import Profile from './Profile'
 
+import ProductList from './ProductList'
+
 
 
 function App() {
@@ -37,6 +39,10 @@ function App() {
 
   <Route path={'/profile'}>
     <Profile/>
+  </Route>
+
+  <Route path={'/productlist'}>
+    <ProductList/>
   </Route>
 
 

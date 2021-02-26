@@ -3,6 +3,8 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\usersController;
+use App\Http\Controllers\productListController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -23,3 +25,4 @@ Route::post('/register',[usersController::class,'register']);
 
 Route::post('/login',[usersController::class,'login']);
 
+Route::get('/productlist',[productListController::class,'productList']);

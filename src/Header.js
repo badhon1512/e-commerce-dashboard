@@ -27,6 +27,7 @@ function Header(){
 {
   localStorage.getItem('user')?
   <>
+    <Link to='/productlist' >Product List</Link>
     <Link to='/add' >Add Product</Link>
     <Link to='/update' >Update Product</Link>
     </>:
