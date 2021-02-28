@@ -44,4 +44,28 @@ class productController extends Controller
     {
         Product::where('id',$id)->delete();
     }
+
+    function getProductById($id)
+    {
+       $product= Product::find($id);
+
+       return $product;
+
+    }
+
+    function updateProduct($id,Request $req)
+    {
+        $product=Product::find($id);
+        $product->name=$req->input('name');
+        $product->price=$req->input('price');
+        $product->price=$req->input('description');
+
+
+        return $product;
+
+    }
+    function search($data)
+    {
+        return Product::where('name','Like',"%$data%")->get();
+    }
 }

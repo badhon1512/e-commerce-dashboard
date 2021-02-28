@@ -30,3 +30,9 @@ Route::post('/login',[usersController::class,'login']);
 Route::get('/productlist',[productController::class,'productList']);
 
 Route::delete('/delete/{id}',[productController::class,'delete']);
+
+Route::get('/update/{id}',[productController::class,'getProductById']);
+
+Route::put('/updateproduct/{id}',[productController::class,'updateProduct']);
+
+Route::get('/search/{data}',[productController::class,'search']);

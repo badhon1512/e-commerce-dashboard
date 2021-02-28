@@ -42,7 +42,7 @@ function AddProduct()
 
      if(result.status===201)
      {
-       alert("product added successfullt");
+       alert("product added successfully");
        setProductInfo({name:"",picture:"",price:"",description:""})
 
      }

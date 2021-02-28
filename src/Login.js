@@ -29,7 +29,7 @@ function Login()
      if(result[0])
      {
       localStorage.setItem("user",JSON.stringify(result[0]));
-      history.push('./add');
+      history.push('./productlist');
      }
      else
      {
@@ -65,7 +65,7 @@ function Login()
 
     <input onChange={(e)=>setEmail(e.target.value)} className='form-control' placeholder="email"  type='text'/>
     {checkBlank.email}<br/> <br/>
-    <input onChange={(e)=>setPassword(e.target.value)} className='form-control' placeholder="password" type='text'/>
+    <input onChange={(e)=>setPassword(e.target.value)} className='form-control' placeholder="password" type='password'/>
     {checkBlank.password}
     <br/> <br/>
     <button onClick={LoginCheck} className='btn btn-primary'>Login</button>
