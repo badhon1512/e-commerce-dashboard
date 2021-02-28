@@ -39,4 +39,9 @@ class productController extends Controller
         
 
     }
+
+    function delete($id)
+    {
+        Product::where('id',$id)->delete();
+    }
 }

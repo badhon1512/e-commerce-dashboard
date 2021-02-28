@@ -12,12 +12,33 @@ const ProductList=()=>{
   // eslint-disable-next-line react-hooks/exhaustive-deps
   useEffect(async()=>{
 
-    let product=await fetch('http://localhost:8000/api/productlist')
-    product=await product.json()
-    setProductList(product)
+    getProduct()
     
 
   },[])
+
+  async function deleteProduct(id)
+  {
+    //alert(id)
+   // alert('http://localhost:8000/api/delete/'+{id})
+    let result= await fetch('http://localhost:8000/api/delete/'+id,{
+
+    method:'delete'
+    })
+    console.log(result)
+
+    alert("deleted successfully");
+
+    getProduct()
+  }
+
+
+  async function getProduct()
+  {
+    let product=await fetch('http://localhost:8000/api/productlist')
+    product=await product.json()
+    setProductList(product)
+  }
 
   console.log(productlist)
 
@@ -30,8 +51,8 @@ const ProductList=()=>{
       <Header/>
      
      <h1>Product List</h1>
-
-     <Table striped bordered hover>
+<div  className={'container'}>
+     <Table  striped bordered hover>
   <thead>
     <tr >
       <th>id</th>
@@ -51,7 +72,7 @@ const ProductList=()=>{
       <td><img src="https://static.toiimg.com/photo/70072353.cms" style={{width:"100px"}}/></td>
       <td>{product.description}</td>
       <td>{product.price}</td>
-      <td><Link><button className="btn btn-danger ">delete</button></Link></td>
+      <td><Link><button onClick={()=>{ deleteProduct(product.id)}} className="btn btn-danger ">delete</button></Link></td>
       <td><Link to={'/update/'+product.id}><button className="btn btn-success ">Update</button></Link></td>
       
     </tr>
@@ -60,6 +81,7 @@ const ProductList=()=>{
     }
   </tbody>
 </Table>
+</div>
 
     </div>
   )
