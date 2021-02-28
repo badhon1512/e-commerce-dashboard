@@ -3,7 +3,7 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\usersController;
-use App\Http\Controllers\productListController;
+use App\Http\Controllers\productController;
 
 
 /*
@@ -23,8 +23,8 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 
 Route::post('/register',[usersController::class,'register']);
 
-Route::post('/add',[productListController::class,'addProduct']);
+Route::post('/add',[productController::class,'addProduct']);
 
 Route::post('/login',[usersController::class,'login']);
 
-Route::get('/productlist',[productListController::class,'productList']);
+Route::get('/productlist',[productController::class,'productList']);

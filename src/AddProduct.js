@@ -12,14 +12,44 @@ function AddProduct()
   const [blankValue,setBlankValue]=useState({name:"",picture:"",price:"",description:""})
 
 
-  const addProductHandle=()=>{
+  
+  
+  async  function addProductHandle(){
 
     console.log(productInfo)
     
-
+    let data={name:productInfo.name,picture:"pic",description:productInfo.description,price:productInfo.price};
     let check={name:"",picture:"",price:"",description:""}
     if(productInfo.name&&productInfo.picture&&productInfo.price&&productInfo.description)
     {
+
+
+
+
+     let result= await fetch('http://localhost:8000/api/add',{
+       
+      method:'post',
+      headers:{
+        "Content-Type":"application/json",
+        'Accept':"application/json"
+       },
+       body:JSON.stringify(data)
+
+      })
+
+      ///result=await result.json();
+     // console.log('result',result);
+
+     if(result.status===201)
+     {
+       alert("product added successfullt");
+       setProductInfo({name:"",picture:"",price:"",description:""})
+
+     }
+     else{
+      alert("product added failure");
+     }
+
 
 
 

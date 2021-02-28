@@ -9,6 +9,7 @@ const ProductList=()=>{
   const [productlist,setProductList]=useState([])
 
 
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   useEffect(async()=>{
 
     let product=await fetch('http://localhost:8000/api/productlist')
